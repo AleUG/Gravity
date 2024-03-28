@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355542e550dff4e4097c0854dfa42a3a, type: 3}
   m_Name: Datos Salto
   m_EditorClassIdentifier: 
-  velocidadSalto: 11
-  multiplicadorCaida: 4
-  multiplicadorSaltoBajo: 3.5
+  velocidadSalto: 10
+  multiplicadorCaida: 3
+  multiplicadorSaltoBajo: 2
