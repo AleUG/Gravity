@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Piso
   - Lava
+  - Bala
   layers:
   - Default
   - TransparentFX

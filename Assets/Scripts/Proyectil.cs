@@ -42,7 +42,7 @@ public class Proyectil : MonoBehaviour
                 Instantiate(impactPrefab, hit.point, Quaternion.identity);
 
             sonidosGO.ReproducirSonido();
-            Destroy(gameObject);
+            Destroy(gameObject, 0.05f);
         }
 
         
