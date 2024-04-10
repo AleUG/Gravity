@@ -33,6 +33,11 @@ public class ControlesPlayer : MonoBehaviour
     bool checkCayendo;
     bool saltando;
 
+    //Empinadas
+    public float slideSpeedMultiplier = 2f; // Multiplicador de velocidad de deslizamiento
+    public float slopeAngleLimit = 45f; // Límite de ángulo de la pendiente para activar el deslizamiento
+    public LayerMask groundMask; // Máscara de capas para detectar suelo
+
     private void Awake()
     {
 
@@ -50,6 +55,7 @@ public class ControlesPlayer : MonoBehaviour
         Moverse();
         Disparar();
         DatosAnimator();
+        //Empinada();
     }
 
     void DatosAnimator()
@@ -72,13 +78,11 @@ public class ControlesPlayer : MonoBehaviour
         }
 
 
-        if (rb2d.velocity.y < 0)
+        /*if (rb2d.velocity.y < 0)
             rb2d.velocity += new Vector2(0,  gravedad * (datosSalto.multiplicadorCaida - 1) * Time.deltaTime);
         else if (rb2d.velocity.y > 0 && !Input.GetKey(botonSalto))
             rb2d.velocity += new Vector2(0, gravedad * (datosSalto.multiplicadorSaltoBajo - 1) * Time.deltaTime);
-
-
-
+        */
     }
 
     void Disparar()

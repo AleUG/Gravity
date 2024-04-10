@@ -7,6 +7,8 @@ TagManager:
   - Piso
   - Lava
   - Bala
+  - highPlatform
+  - lowPlatform
   layers:
   - Default
   - TransparentFX
