@@ -32,47 +32,30 @@ public class GravitySystem : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LowGravitySystem()
     {
-        if (lowGravity)
+        if (lowPlatformList.Count > 0)
         {
-            if (lowPlatformList.Count > 0)
+            foreach (GameObject obj in lowPlatformList)
             {
-                foreach (GameObject obj in lowPlatformList)
-                {
-                    obj.SetActive(true);
-                }
-
-                foreach (GameObject obj in highPlatformList)
-                {
-                    obj.SetActive(false);
-
-                }
+                obj.SetActive(true);
             }
-        }
-        else if (highGravity)
-        {
-            if (highPlatformList.Count > 0)
-            {
-                foreach (GameObject obj in highPlatformList)
-                {
-                    obj.SetActive(true);
-                }
 
-                foreach (GameObject obj in lowPlatformList)
-                {
-                    obj.SetActive(false);
-
-                }
-            }
-        }
-        else if (neutralGravity)
-        {
             foreach (GameObject obj in highPlatformList)
             {
                 obj.SetActive(false);
 
+            }
+        }
+    }
+
+    public void HighGravitySystem()
+    {
+        if (highPlatformList.Count > 0)
+        {
+            foreach (GameObject obj in highPlatformList)
+            {
+                obj.SetActive(true);
             }
 
             foreach (GameObject obj in lowPlatformList)
@@ -80,6 +63,21 @@ public class GravitySystem : MonoBehaviour
                 obj.SetActive(false);
 
             }
+        }
+    }
+
+    public void NeutralGravitySystem()
+    {
+        foreach (GameObject obj in highPlatformList)
+        {
+            obj.SetActive(false);
+
+        }
+
+        foreach (GameObject obj in lowPlatformList)
+        {
+            obj.SetActive(false);
+
         }
     }
 }

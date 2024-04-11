@@ -14,7 +14,6 @@ public class CollisionSystem : MonoBehaviour
         {
             onEnter.Invoke();
         }
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(this.transform);
+            other.transform.SetParent(this.transform);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            other.transform.SetParent(null);
         }
     }
 }
