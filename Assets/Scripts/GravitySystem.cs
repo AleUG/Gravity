@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GravitySystem : MonoBehaviour
 {
+    public GameObject player;
     public bool lowGravity, highGravity, neutralGravity;
 
     public List<GameObject> highPlatformList;
@@ -47,6 +48,9 @@ public class GravitySystem : MonoBehaviour
 
             }
         }
+
+        player.transform.parent = null;
+        player.SetActive(true);
     }
 
     public void HighGravitySystem()
@@ -64,6 +68,9 @@ public class GravitySystem : MonoBehaviour
 
             }
         }
+
+        player.transform.parent = null;
+        player.SetActive(true);
     }
 
     public void NeutralGravitySystem()
@@ -79,5 +86,8 @@ public class GravitySystem : MonoBehaviour
             obj.SetActive(false);
 
         }
+
+        player.transform.parent = null;
+        player.SetActive(true);
     }
 }

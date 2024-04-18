@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Plataforma : MonoBehaviour
 {
+    Collision2D collision;
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.SetParent(this.transform);
+            collision = other;
         }
     }
 
@@ -17,6 +19,9 @@ public class Plataforma : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.SetParent(null);
+            collision = null;
         }
     }
+
+
 }
