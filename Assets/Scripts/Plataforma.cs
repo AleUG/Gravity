@@ -1,27 +1,112 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
+using UnityEngine.U2D;
 
 public class Plataforma : MonoBehaviour
 {
     Collision2D collision;
-    private void OnCollisionEnter2D(Collision2D other)
+
+    public float speed;
+    Vector3 targetPos;
+
+    ControlesPlayer playerController;
+    Rigidbody2D rb;
+    Vector3 moveDirection;
+
+    Rigidbody2D playerRb;
+
+    public GameObject ways;
+    public Transform[] wayPoints;
+    int pointIndex;
+    int pointCount;
+    int direction = 1;
+
+    public bool isVertical;
+
+    private void Awake()
     {
-        if (other.gameObject.CompareTag("Player"))
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<ControlesPlayer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        wayPoints = new Transform[ways.transform.childCount];
+        for (int i = 0; i < ways.gameObject.transform.childCount; i++)
         {
-            other.transform.SetParent(this.transform);
-            collision = other;
+            wayPoints[i] = ways.transform.GetChild(i).gameObject.transform;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    void Start()
     {
-        if (other.gameObject.CompareTag("Player"))
+        pointIndex = 1;
+        pointCount = wayPoints.Length;
+        targetPos = wayPoints[1].transform.position;
+        DirectionCalculate();
+    }
+
+    void Update()
+    {
+        if (Vector2.Distance(transform.position, targetPos) < 0.05f)
         {
-            other.transform.SetParent(null);
-            collision = null;
+            NextPoint();
         }
     }
 
+    private void FixedUpdate()
+    {
+        rb.velocity = moveDirection * speed;
+    }
 
+    void NextPoint()
+    {
+        transform.position = targetPos;
+
+        if (pointIndex == pointCount - 1)
+        {
+            direction = -1;
+        }
+        else if (pointIndex == 0)
+        {
+            direction = 1;
+        }
+
+        pointIndex += direction;
+        targetPos = wayPoints[pointIndex].transform.position;
+        DirectionCalculate();
+    }
+
+    void DirectionCalculate()
+    {
+        moveDirection = (targetPos - transform.position).normalized;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerController.isOnPlatform = true;
+            playerController.platformRb = rb;
+
+            if (isVertical)
+            {
+                other.transform.parent = this.transform;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerController.isOnPlatform = false;
+
+            if (isVertical)
+            {
+                other.transform.parent = null;
+            }
+        }
+    }
 }

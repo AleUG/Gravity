@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6818147655429505854}
   - component: {fileID: 6382727611617958222}
   - component: {fileID: 3751844834006850770}
+  - component: {fileID: 3454341409473258252}
   m_Layer: 0
   m_Name: LowCube
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 95053522685220966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.7, y: 3.79, z: 17.026285}
+  m_LocalPosition: {x: -19.7, y: 3.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -362,6 +363,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3454341409473258252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95053522685220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a630cdb5f6a757541b4d9d4aa98ed544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture:
+  - {fileID: 2800000, guid: 6dd30b78080dce146966a54e5d4e51ff, type: 3}
+  - {fileID: 2800000, guid: 3c24883857bae2c4c895c5146afa49a7, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &1674732849718166342
 GameObject:
   m_ObjectHideFlags: 0

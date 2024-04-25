@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 984819189092783907}
   - component: {fileID: 4281372402352094630}
   - component: {fileID: 1437979823394154950}
+  - component: {fileID: 5911303217892788987}
   m_Layer: 0
   m_Name: NoneCube
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1741198268579014331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.38, y: 3.92, z: 17.026285}
+  m_LocalPosition: {x: -25.38, y: 3.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -338,6 +339,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5911303217892788987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741198268579014331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a630cdb5f6a757541b4d9d4aa98ed544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture:
+  - {fileID: 2800000, guid: 6dd30b78080dce146966a54e5d4e51ff, type: 3}
+  - {fileID: 2800000, guid: 3c24883857bae2c4c895c5146afa49a7, type: 3}
+  cursorHotspot: {x: 16, y: 16}
 --- !u!1 &4923245384089874557
 GameObject:
   m_ObjectHideFlags: 0

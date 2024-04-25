@@ -38,6 +38,10 @@ public class ControlesPlayer : MonoBehaviour
     public float slopeAngleLimit = 45f; // Límite de ángulo de la pendiente para activar el deslizamiento
     public LayerMask groundMask; // Máscara de capas para detectar suelo
 
+    //Plataformas
+    public bool isOnPlatform;
+    public Rigidbody2D platformRb;
+
     private void Awake()
     {
 
@@ -75,6 +79,7 @@ public class ControlesPlayer : MonoBehaviour
             SoundFXManager.instance.ReproducirSFX(sonidoSalto);
             StartCoroutine(CheckAterrizaje());
             saltando = true;
+            anim.SetTrigger("salto");
         }
 
 
@@ -113,8 +118,14 @@ public class ControlesPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        rb2d.velocity = new Vector2(horizontal , rb2d.velocity.y) ;
+        if (isOnPlatform)
+        {
+            rb2d.velocity = new Vector2(horizontal+platformRb.velocity.x, rb2d.velocity.y);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(horizontal, rb2d.velocity.y);
+        }
     }
 
     void SonidosPaso()
