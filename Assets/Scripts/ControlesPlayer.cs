@@ -24,7 +24,7 @@ public class ControlesPlayer : MonoBehaviour
     public float tiempoEntrePasos;
     float tiempoUltimoPaso;
 
-    bool grounded;
+    public bool grounded;
 
 
     Collider2D col2D;
@@ -42,19 +42,36 @@ public class ControlesPlayer : MonoBehaviour
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
 
+
+    // esto es para chequear el daño de caida
+    Vector3 posicionAnterior;
+    Vector3 direccion;
+    int sueloCount;
+    Collider2D col;
+    Vector2[] groundCheckPos;
+    bool prevGround;
+    public float velocidadDañoCaida;
+
     private void Awake()
     {
-
+        groundCheckPos = new Vector2[3];
         rb2d = GetComponent<Rigidbody2D>();
         disparar = GetComponent<Disparar>();
         gravedad = Physics2D.gravity.y;
         prevenirDispararPiso = GetComponentInChildren<PrevenirDispararPiso>();
-        CheckPointSystem.instance.ActualizarUltimaPos(transform.position);
 
+       col = GetComponent<BoxCollider2D>();
+
+    }
+
+    private void Start()
+    {
+        CheckPointSystem.instance.ActualizarUltimaPos(transform.position);
     }
 
     private void Update()
     {
+        CheckSuelo();
         Saltar();
         Moverse();
         Disparar();
@@ -163,7 +180,41 @@ public class ControlesPlayer : MonoBehaviour
     }
 
 
-    
+
+    void CheckSuelo()
+    {
+        // obtener la direccion del objeto calculando la posición en el frame anterior y restandole la posicion actual
+        direccion = (transform.position - posicionAnterior) / Time.deltaTime;
+        posicionAnterior = transform.position;
+
+        // esto es para saber si en el frame anterior estaba o no en el suelo
+        prevGround = grounded;
+
+        // acá viene la magia negra
+        sueloCount = 0;
+        Bounds bounds = col.bounds;
+
+        // abajo Izquierda
+        groundCheckPos[0] = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y);
+
+        // abajo Centro
+        groundCheckPos[1] = new Vector2(bounds.center.x, bounds.center.y - bounds.extents.y);
+
+        // abajo Derecha
+        groundCheckPos[2] = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y);
+
+        for (int i = 0; i < 3; i++)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(groundCheckPos[i], Vector2.down, 0.05f, layerPiso);
+            if (hit.collider != null)
+                sueloCount++;
+        }
+
+        // si alguno de los 3 raycast toca suelo, entonces hay piso
+        grounded = sueloCount > 0;
+    }
+
+
 
 
 
