@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 94cf0aed2822fd7489899236b62d74b5
+guid: f69e8b61d77dc054eb0ace89d9845f85
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 882d7f5bcb43fee49926c7899a0d4668
-      internalID: -1196020208
+      spriteID: 2cce47b5e51e43d4abafa5af89f265e0
+      internalID: 394656558
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60b22682e5b4b68408a50125aa463fcd
-      internalID: 293816762
+      spriteID: fad677cec9687724f97168d371165639
+      internalID: 1556765419
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 422a3a359d17870439cc05cb005b8ad1
-      internalID: 329428338
+      spriteID: 593d819d5170f3a4bab61cea69e8a6cc
+      internalID: 668702725
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50e218adb3403a7448d14f266188b82e
-      internalID: -2006258520
+      spriteID: 466058cad9a264f48b832fe649f630cf
+      internalID: -160855171
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Engranajes_spriteSheet_0: -1196020208
-      Engranajes_spriteSheet_1: 293816762
-      Engranajes_spriteSheet_2: 329428338
-      Engranajes_spriteSheet_3: -2006258520
+      Engranajes_spriteSheet_0: 394656558
+      Engranajes_spriteSheet_1: 1556765419
+      Engranajes_spriteSheet_2: 668702725
+      Engranajes_spriteSheet_3: -160855171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

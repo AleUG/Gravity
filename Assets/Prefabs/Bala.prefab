@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   impactPrefab: {fileID: 371696919283298759, guid: 29ea1bf29f8896d41bbc29f5b4c2a104, type: 3}
-  velocidadBala: 25
+  velocidadBala: 22.5
   rb2d: {fileID: 3712510066958273812}
 --- !u!50 &3712510066958273812
 Rigidbody2D:
