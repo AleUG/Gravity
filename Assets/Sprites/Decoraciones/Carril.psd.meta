@@ -109,7 +109,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 1078
-      height: 113
+      height: 123
     spriteID: 783da039395ff4a4db1d3a61fdba4231
     spriteBone: []
     spriteOutline: []
@@ -119,7 +119,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 246}
+    spritePosition: {x: 0, y: 241}
   - name: soporte
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -128,9 +128,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 125
+      y: 141
       width: 1078
-      height: 71
+      height: 69
     spriteID: 15cf81e36d146c146a8d2048365b2945
     spriteBone: []
     spriteOutline: []
@@ -139,8 +139,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 125}
-    spritePosition: {x: 0, y: 267}
+    uvTransform: {x: 4, y: 136}
+    spritePosition: {x: 0, y: 263}
   characterData:
     bones: []
     parts: []
@@ -259,7 +259,7 @@ ScriptedImporter:
     parentIndex: 3
     spriteID: 15cf81e36d146c146a8d2048365b2945
     layerID: 7
-    mosaicPosition: {x: 4, y: 125}
+    mosaicPosition: {x: 4, y: 136}
     flatten: 0
     isImported: 1
     isVisible: 1

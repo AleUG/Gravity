@@ -22,33 +22,40 @@ public class ChangeGravity : MonoBehaviour
     public void LowGravity()
     {
         rb.gravityScale = 0.75f;
-        animator.SetBool("low", true);
         gravitySystem.lowGravity = true;
-
+        animator.SetBool("low", true);
         gravitySystem.highGravity = false;
         gravitySystem.neutralGravity = false;
+
+        animator.SetBool("high", false);
+        animator.SetBool("none", false);
 
     }
 
     public void HighGravity()
     {
         rb.gravityScale = 4.0f;
-        animator.SetBool("high", true);
+        
         gravitySystem.highGravity = true;
-
+        animator.SetBool("high", true);
         gravitySystem.lowGravity = false;
-        gravitySystem.neutralGravity = false;  
+        gravitySystem.neutralGravity = false;
 
+        animator.SetBool("low", false);
+        animator.SetBool("none", false);
     }
 
     public void NeutralGravity()
     {
         rb.gravityScale = 2.0f;
-        animator.SetBool("none", true);
+        
         gravitySystem.neutralGravity = true;
-
+        animator.SetBool("none", true);
         gravitySystem.highGravity = false;
         gravitySystem.lowGravity = false;
+
+        animator.SetBool("low", false);
+        animator.SetBool("high", false);
 
     }
 

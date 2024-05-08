@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: "Assets/Scenes/Men\xFAPrincipal.unity"
     guid: f5245814d2c740c4eaa22988030046a1
   - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: cd9628ba57a6cdc4483ef3b337226926
+  - enabled: 1
     path: Assets/Scenes/Level_TEST.unity
     guid: 7e7bc44224b26e34aa17c1dd1597cf24
+  - enabled: 1
+    path: Assets/Scenes/Cinematic2.unity
+    guid: 33075310cbcc86740af6cd5c8ff9306d
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 2429d90a153809b4fa57678f5eb36c6c
   m_configObjects: {}

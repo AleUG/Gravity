@@ -4,25 +4,13 @@ using UnityEngine;
 using UnityEngine.Splines;
 public class PlataformaMovil : MonoBehaviour
 {
-    public Transform splineAnimateObject;
-    public Rigidbody2D rb2D;
-
-    Vector3 velocidad;
-    Vector3 prevPos;
-
-    private void Awake()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        rb2D = GetComponentInChildren<Rigidbody2D>();
-        prevPos = splineAnimateObject.position;
+        collision.transform.transform.parent = this.transform;
     }
 
-    private void FixedUpdate()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        velocidad = (splineAnimateObject.position - prevPos) / Time.deltaTime;
-        prevPos = splineAnimateObject.position;
-
-        rb2D.velocity = velocidad;
-
+        collision.transform.transform.parent = null;
     }
 }

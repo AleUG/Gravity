@@ -5,6 +5,9 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseCanvas; // Referencia al canvas de pausa
     public GameObject optionsCanvas;
     public bool isPaused = false; // Indica si el juego está pausado
+    public bool canPause = true;
+
+    public ControlesPlayer controlesPlayer;
 
     private void Start()
     {
@@ -13,7 +16,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canPause)
         {
             if (isPaused)
             {
@@ -32,6 +35,8 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         pauseCanvas.SetActive(true); // Activar el canvas de pausa
         //Cursor.lockState = CursorLockMode.Confined;
+
+        controlesPlayer.enabled = false;
     }
 
     public void ResumeGame()
@@ -41,5 +46,15 @@ public class PauseManager : MonoBehaviour
         pauseCanvas.SetActive(false); // Desactivar el canvas de pausa
         optionsCanvas.SetActive(false);
         //Cursor.lockState = CursorLockMode.Locked;
+
+        controlesPlayer.enabled = true;
+    }
+
+    public void ChangeCanPause(bool canPauseGame)
+    {
+        if(!canPauseGame)
+        {
+            canPause = false;
+        }
     }
 }

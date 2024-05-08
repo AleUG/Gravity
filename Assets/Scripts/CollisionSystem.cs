@@ -26,6 +26,9 @@ public class CollisionSystem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        onExit.Invoke();
+        if (collision.CompareTag(tagObject))
+        {
+            onExit.Invoke();
+        }
     }
 }

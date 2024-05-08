@@ -162,6 +162,15 @@ public class ControlesPlayer : MonoBehaviour
         grounded = state;
     }
 
+    public void EnableMechanic(int mechanic)
+    {
+        if (mechanic == 0)
+        {
+            puedeDisparar = true;
+        }
+
+    }
+
 
 
     IEnumerator CheckAterrizaje()

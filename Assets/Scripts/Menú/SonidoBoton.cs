@@ -12,6 +12,8 @@ public class SonidoBoton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     private AudioSource audioSource;
 
+    private bool hasPlayed = false;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -75,4 +77,5 @@ public class SonidoBoton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         // Aquí puedes agregar tu lógica personalizada según el botón seleccionado
         Debug.Log("Botón " + index + " presionado");
     }
+
 }

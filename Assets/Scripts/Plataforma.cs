@@ -47,16 +47,15 @@ public class Plataforma : MonoBehaviour
         DirectionCalculate();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, targetPos) < 0.05f)
+        // Aumentar el umbral de tolerancia para el cambio de waypoint
+        float threshold = 0.15f; // Ajusta el valor según sea necesario
+        if (Vector2.Distance(transform.position, targetPos) < threshold)
         {
             NextPoint();
         }
-    }
 
-    private void FixedUpdate()
-    {
         rb.velocity = moveDirection * speed;
     }
 
