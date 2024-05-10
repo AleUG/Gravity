@@ -50,7 +50,7 @@ public class Plataforma : MonoBehaviour
     private void FixedUpdate()
     {
         // Aumentar el umbral de tolerancia para el cambio de waypoint
-        float threshold = 0.15f; // Ajusta el valor según sea necesario
+        float threshold = 0.1f; // Ajusta el valor según sea necesario
         if (Vector2.Distance(transform.position, targetPos) < threshold)
         {
             NextPoint();
