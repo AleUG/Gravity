@@ -15,8 +15,8 @@ public class ControlesPlayer : MonoBehaviour
     public float velocidadMovimiento;
     public AudioClip sonidoSalto, sonidoAterrizaje;
     public LibreriaDeSonidos sonidosPasos;
-    //Private
 
+    //Private
     Rigidbody2D rb2d;
     Disparar disparar;
     float horizontal;
@@ -26,22 +26,14 @@ public class ControlesPlayer : MonoBehaviour
 
     public bool grounded;
 
-
-    Collider2D col2D;
     PrevenirDispararPiso prevenirDispararPiso;
 
     bool checkCayendo;
     bool saltando;
 
-    //Empinadas
-    public float slideSpeedMultiplier = 2f; // Multiplicador de velocidad de deslizamiento
-    public float slopeAngleLimit = 45f; // Límite de ángulo de la pendiente para activar el deslizamiento
-    public LayerMask groundMask; // Máscara de capas para detectar suelo
-
     //Plataformas
     public bool isOnPlatform;
     public Rigidbody2D platformRb;
-
 
     // esto es para chequear el daño de caida
     Vector3 posicionAnterior;
@@ -76,7 +68,6 @@ public class ControlesPlayer : MonoBehaviour
         Moverse();
         Disparar();
         DatosAnimator();
-        //Empinada();
     }
 
     void DatosAnimator()
@@ -98,13 +89,6 @@ public class ControlesPlayer : MonoBehaviour
             saltando = true;
             anim.SetTrigger("salto");
         }
-
-
-        /*if (rb2d.velocity.y < 0)
-            rb2d.velocity += new Vector2(0,  gravedad * (datosSalto.multiplicadorCaida - 1) * Time.deltaTime);
-        else if (rb2d.velocity.y > 0 && !Input.GetKey(botonSalto))
-            rb2d.velocity += new Vector2(0, gravedad * (datosSalto.multiplicadorSaltoBajo - 1) * Time.deltaTime);
-        */
     }
 
     void Disparar()
@@ -222,13 +206,4 @@ public class ControlesPlayer : MonoBehaviour
         // si alguno de los 3 raycast toca suelo, entonces hay piso
         grounded = sueloCount > 0;
     }
-
-
-
-
-
-
-
-
-
 }
